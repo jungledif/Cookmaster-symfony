@@ -19,12 +19,12 @@ class HomeController extends AbstractController
     {
 
         if (!empty($search)) {
-            $items = $recipeRepo->search($search);
+            $recipes = $recipeRepo->search($search);
         } else {
-            $items = $recipeRepo->findAll();
+            $recipes = $recipeRepo->findAll();
         }
         return $this->render('home/index.html.twig', [
-            'items' => $items,
+            'recipes' => $recipes,
         ]);
     }
 }

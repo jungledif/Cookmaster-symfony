@@ -33,19 +33,19 @@ class AppFixtures extends Fixture
             $user->setRoles(['ROLE_USER']);
             $manager->persist($user);
 
-            for ($i = 0; $i < 100; $i++) {
+            for ($i = 0; $i < 10; $i++) {
                 $oneRecipe = new Recipe();
-                $oneRecipe->setTitle($faker->sentence(4));
+                $oneRecipe->setTitle($faker->sentence(1));
                 $oneRecipe->setDescriptive($faker->text(255));
-                $oneRecipe->setType($faker->text(255));
-                $oneRecipe->setLevel($faker->text(255));
+                $oneRecipe->setType($faker->sentence(1));
+                $oneRecipe->setLevel($faker->sentence(1));
                 $oneRecipe->setStep1($faker->text(255));
                 $oneRecipe->setStep2($faker->text(255));
                 $oneRecipe->setStep3($faker->text(255));
-                $oneRecipe->setRecipeImg($faker->imageUrl(640, 480, "cats", true, null, true));
-                $oneRecipe->setCooktime($faker->text(255));
+                $oneRecipe->setRecipeImg("https://www.lespatisseriesdaurelien.fr/wp-content/uploads/2021/05/Fraisier-9.jpg");
+                $oneRecipe->setCooktime($faker->randomDigitNotNull(1));
                 $oneRecipe->setServings($faker->randomDigitNotNull(1));
-                $oneRecipe->setCreationDate($faker->date($format = 'Y-m-d', $max = 'now'));
+
                 $oneRecipe->setAuthor($user);
                 $manager->persist($oneRecipe);
             }

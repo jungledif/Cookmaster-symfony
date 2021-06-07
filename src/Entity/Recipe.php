@@ -55,7 +55,7 @@ class Recipe
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $recipe_img;
+    private $recipeImg;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -68,7 +68,7 @@ class Recipe
     private $servings;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="date", length=255, nullable=true)
      */
     private $creationDate;
 
@@ -168,12 +168,12 @@ class Recipe
 
     public function getRecipeImg(): ?string
     {
-        return $this->recipe_img;
+        return $this->recipeImg;
     }
 
-    public function setRecipeImg(?string $recipe_img): self
+    public function setRecipeImg(?string $recipeImg): self
     {
-        $this->recipe_img = $recipe_img;
+        $this->recipeImg = $recipeImg;
 
         return $this;
     }
@@ -202,12 +202,12 @@ class Recipe
         return $this;
     }
 
-    public function getCreationDate(): ?string
+    public function getCreationDate(): ?\DateTimeInterface
     {
         return $this->creationDate;
     }
 
-    public function setCreationDate(?string $creationDate): self
+    public function setCreationDate(\DateTimeInterface $creationDate): self
     {
         $this->creationDate = $creationDate;
 

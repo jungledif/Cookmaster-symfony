@@ -4,6 +4,70 @@
 
 {% block body %}
 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                >>> You are logged as&nbsp;<b>:{{ app.user.nickname }}</b>
+               <p class="position-absolute"> >>> You are logged as&nbsp;<b>:{{ app.user.nickname }}</b></p>
             {% endif %}
+<section class="home">
+    
+    </section>
+  <br>   
+      
+     <h1>Recette du jour</h1>
+     {% for oneRecipe in recipes %}
+    <section class="cards-post">
+   
+    <div id="card-wrapper">
+   
+    <style>#card-wrapper {
+     background-image:url({{ oneRecipe.recipeImg }});
+     background-size:cover;
+     background-repeat:no-repeat;
+
+     min-width:550px;
+     min-height:750px;
+     color:black;
+     box-shadow: 5px 5px 15px; 
+     font-family: 'Abril Fatface', cursive;
+     order:2;
+     margin-top:50px;}</style>
+    <div class="inner-card">
+    <!--top right btn-->
+    <img src="" alt="">
+    <div class="more-info-btn">
+      
+    </div>
+    
+    <!--title-->
+    <div id="title">
+      {{ oneRecipe.title }}
+    </div>
+     <img src="" alt=""> #}
+   
+    <!--details-->
+    <div id="details">
+      
+    <div class="Details">
+      <h2>Niveau</h2>
+      <h4> {{ oneRecipe.level }}</h4>
+    </div>
+      
+    <div class="Details">
+      <h2>Temps</h2>
+      <h4> {{ oneRecipe.cooktime }} minutes</h4>
+    </div>
+      
+    <div class="Details">
+      <h2>Couverts</h2>
+      <h4> {{ oneRecipe.servings }}</h4>
+    </div>
+      
+    </div>
+    
+  </div>
+     <!--start btn-->
+    <div class="start-btn"><a href=""><h3>Voir la recette<i class="fas fa-long-arrow-alt-right"></i></h3> </a></div>
+  
+    </div>
+  
+    </section>
+    {% endfor %}
 {% endblock %}
