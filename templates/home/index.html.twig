@@ -3,5 +3,7 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                >>> You are logged as&nbsp;<b>:{{ app.user.nickname }}</b>
+            {% endif %}
 {% endblock %}

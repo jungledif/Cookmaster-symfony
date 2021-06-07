@@ -46,6 +46,7 @@ class AppFixtures extends Fixture
                 $oneRecipe->setCooktime($faker->text(255));
                 $oneRecipe->setServings($faker->randomDigitNotNull(1));
                 $oneRecipe->setCreationDate($faker->date($format = 'Y-m-d', $max = 'now'));
+                $oneRecipe->setAuthor($user);
                 $manager->persist($oneRecipe);
             }
 
