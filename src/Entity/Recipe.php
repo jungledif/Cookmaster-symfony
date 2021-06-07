@@ -38,7 +38,7 @@ class Recipe
     private $level;
 
     /**
-     * @ORM\Column(type="string", length=800)
+     * @ORM\Column(type="text")
      */
     private $step1;
 
