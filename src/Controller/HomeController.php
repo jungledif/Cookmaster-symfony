@@ -11,8 +11,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class HomeController extends AbstractController
 {
     /**
-     * @Route("/", name="index")
-     * @Route("/home/{search}", name="home", defaults={"search":""})
+     * @Route("/home", name="home")
+     * @Route("/", name="default")
+     * @Route("/search/{searchterm}", name="search", defaults={"searchterm":""})
      */
     public function index($search = null, EntityManagerInterface $manager, RecipeRepository $recipeRepo): Response
     {
