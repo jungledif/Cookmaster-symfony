@@ -58,7 +58,7 @@ class Recipe
     private $recipeImg;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="decimal", precision=10, scale=0)
      */
     private $cooktime;
 

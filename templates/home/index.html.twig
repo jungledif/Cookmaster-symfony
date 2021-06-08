@@ -15,10 +15,10 @@
      {% for oneRecipe in recipes %}
     <section class="cards-post">
    
-    <div id="card-wrapper">
+    <div id="card-wrapper{{ loop.index }}">
    
-    <style>#card-wrapper {
-     background-image:url({{ oneRecipe.recipeImg }});
+    <style>#card-wrapper{{ loop.index }} {
+     background-image:url({{  oneRecipe.recipeImg }});
      background-size:cover;
      background-repeat:no-repeat;
 
@@ -40,8 +40,7 @@
     <div id="title">
       {{ oneRecipe.title }}
     </div>
-     <img src="" alt="">
-   
+     
     <!--details-->
     <div id="details">
       

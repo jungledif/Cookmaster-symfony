@@ -1,60 +1,76 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
- <form action="{{ path('new') }}"  method="POST" class="row g-3 col-sm-9 col-md-7 col-lg-8 mx-auto">
+ <div  class="row">
+ <div class="g-3 col-sm-9 col-md-7 col-lg-8 mx-auto">
+ {{ form_start(RecipeFormType) }}
    
     <h1 class="text-center">Postez votre nouvelle recette</h1>
     <div class="col-md-8 mb-3">
   
-      <label for="recipeName" class="form-label">Nom de la recette</label>
-      <input type="text" id="recipeName" class="form-control" placeholder="Nom de la recette" name="title" required="">
+      {# <label for="recipeName" class="form-label">Nom de la recette</label>
+      <input type="text" id="recipeName" class="form-control" placeholder="Nom de la recette" name="title" required=""> #}
+      {{ form_row(RecipeFormType.title, {label: 'Nom de la recette'})}}
     </div>
     <div class="col-md-2 mb-3">
-      <label for="cooktimeNumber" class="form-label">Temps</label>
-      <input type="number" id="cooktimeNumber" class="form-control" placeholder="1" name="cooktime" required="">
+      {# <label for="cooktimeNumber" class="form-label">Temps</label>
+      <input type="number" id="cooktimeNumber" class="form-control" placeholder="1" name="cooktime" required=""> #}
+      {{ form_row(RecipeFormType.cooktime, {label: 'Temps'})}}
     </div>       
     <div class="col-md-2 mb-3">
-      <label for="servingsNumber" class="form-label">Couverts</label>
-      <input type="number" id="servingsNumber" class="form-control" placeholder="1" name="servings" required="">
+      {# <label for="servingsNumber" class="form-label">Couverts</label>
+      <input type="number" id="servingsNumber" class="form-control" placeholder="1" name="servings" required=""> #}
+       {{ form_row(RecipeFormType.servings, {label: 'Couverts'})}}
+
     </div>   
          <div class="col-md-6 mb-3">
-                    <label for="recipeType" class="form-label">Type de recette</label>
+                    {# <label for="recipeType" class="form-label">Type de recette</label>
                     <select id="recipeType" class="form-select" name="type" required="">
                         <option>Cuisine</option>
                         <option>Pâtisserie</option>
-                    </select>
+                    </select> #}
+                    {{ form_row(RecipeFormType.type, {label: 'Type de recette'})}}
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label for="difficultyLvl" class="form-label">Difficulté</label>
+                    {# <label for="difficultyLvl" class="form-label">Difficulté</label>
                     <select id="difficultyLvl" class="form-select" name="level" required="">
                         <option>Facile</option>
                         <option>Intermédiaire</option>
                         <option>Difficile</option>
-                    </select>
+                    </select> #}
+                    {{ form_row(RecipeFormType.level, {label: 'Difficulté'})}}
                 </div>
             </div>
+            <div class="g-3 col-sm-9 col-md-7 col-lg-8 mx-auto">
             <div class="form-floating">
-  <textarea class="form-control" placeholder="Descriptif" id="descriptive" style="height: 100px" name="descriptive"></textarea>
-  <label for="descriptive">Descriptif</label>
+  {# <textarea class="form-control" placeholder="Descriptif" id="descriptive" style="height: 100px" name="descriptive"></textarea>
+  <label for="descriptive">Descriptif</label> #}
+  {{ form_row(RecipeFormType.descriptive, {label: 'Description'})}}
 </div>
-            <div class="form-floating">
-  <textarea class="form-control" placeholder="Etape 1" id="recipeStep1" style="height: 100px" name="step1"></textarea>
-  <label for="recipeStep1">Etape 1</label>
+            <div class="">
+  {# <textarea class="form-control" placeholder="Etape 1" id="recipeStep1" style="height: 100px" name="step1"></textarea>
+  <label for="recipeStep1">Etape 1</label> #}
+  {{ form_row(RecipeFormType.step1, {label: 'Etape 1'})}}
 </div>
-<div class="form-floating">
-  <textarea class="form-control" placeholder="Etape 2" id="recipeStep2" style="height: 100px" name="step2"></textarea>
-  <label for="recipeStep2">Etape 2</label>
+<div class="">
+  {# <textarea class="form-control" placeholder="Etape 2" id="recipeStep2" style="height: 100px" name="step2"></textarea>
+  <label for="recipeStep2">Etape 2</label> #}
+  {{ form_row(RecipeFormType.step2, {label: 'Etape 2'})}}
 </div>
-<div class="form-floating">
-  <textarea class="form-control" placeholder="Etape 3" id="recipeStep3" style="height: 100px" name="step3"></textarea>
-  <label for="recipeStep3">Etape 3</label>
+<div class="">
+  {# <textarea class="form-control" placeholder="Etape 3" id="recipeStep3" style="height: 100px" name="step3"></textarea>
+  <label for="recipeStep3">Etape 3</label> #}
+  {{ form_row(RecipeFormType.step3, {label: 'Etape 3'})}}
 </div>
             <div class="mb-3">
-  <label for="formFileSm" class="form-label">Photo de la recette</label>
-  <input class="form-control form-control-sm" id="formFileSm" type="text" name="recipeImg">
+  {# <label for="formFileSm" class="form-label">Photo de la recette</label>
+  <input class="form-control form-control-sm" id="formFileSm" type="text" name="recipeImg"> #}
+  {{ form_row(RecipeFormType.recipeImg, {label: 'Photo de la recette'})}}
 </div>
             
         <button type="submit" class="btn btn-primary mb-5">Postez</button>
-    
-</form>
+    </div>
+    {{ form_end(RecipeFormType) }}
+</div>
+</div>
 {% endblock %}
